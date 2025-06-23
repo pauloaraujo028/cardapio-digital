@@ -1,0 +1,48 @@
+{
+  "hamburgueres": [
+    {
+      "id": 1,
+      "name": "Hambúrguer Clássico",
+      "description": "Pão, carne, queijo, alface e tomate.",
+      "price": 25.9,
+      "image": "/assets/hamb-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Hambúrguer Duplo",
+      "description": "Pão, duas carnes, queijo e bacon.",
+      "price": 32.5,
+      "image": "/assets/hamb-2.png"
+    },
+    {
+      "id": 3,
+      "name": "Hambúrguer Smash",
+      "description": "Pão, carne, queijo, alface e tomate.",
+      "price": 25.9,
+      "image": "/assets/hamb-1.png"
+    },
+    {
+      "id": 4,
+      "name": "Hambúrguer Big",
+      "description": "Pão, duas carnes, queijo e bacon.",
+      "price": 32.5,
+      "image": "/assets/hamb-2.png"
+    }
+  ],
+  "bebidas": [
+    {
+      "id": 5,
+      "name": "Coca-Cola 350ml",
+      "description": "Refrigerante gelado.",
+      "price": 6.0,
+      "image": "/assets/refri-1.png"
+    },
+    {
+      "id": 6,
+      "name": "Suco de Laranja",
+      "description": "Natural, sem açúcar.",
+      "price": 7.0,
+      "image": "/assets/refri-2.png"
+    }
+  ]
+}
