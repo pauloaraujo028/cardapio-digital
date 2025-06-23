@@ -444,8 +444,8 @@ fetch("./data/menu.json")
         .join("");
 
       return `
-        <h3 class="text-xl font-medium mb-4 mt-4">${title}</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <h3 class="text-xl font-medium mb-4 mt-4 px-4 mx-auto max-w-7xl">${title}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-4 mb-16"">
           ${cards}
         </div>
       `;
