@@ -7,11 +7,12 @@ const addressModal = document.getElementById("address-modal");
 const operationModal = document.getElementById("operation-modal");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
+const cartItemsCount = document.getElementById("cart-items-count");
 const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
 const closeModalAddressBtn = document.getElementById("close-modal-address-btn");
 const closeModalOperationBtn = document.getElementById(
-  "close-modal-operation-btn"
+  "close-modal-operation-btn",
 );
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
@@ -117,6 +118,7 @@ function updateCartModal() {
     contactBtn.classList.remove("bg-gray-900");
     contactBtn.classList.add("bg-gray-400");
     cartTotal.textContent = formatedPrice(0);
+    cartItemsCount.textContent = 0;
     cartCounter.innerText = 0;
     return;
   }
@@ -139,7 +141,7 @@ function updateCartModal() {
       "flex",
       "justify-between",
       "mb-4",
-      "flex-col"
+      "flex-col",
     );
 
     cartItemElement.innerHTML = `
@@ -150,7 +152,7 @@ function updateCartModal() {
           <p class="font-medium mt-2">${formatedPrice(item.price)}</p>
         </div>
 
-          <button class="hover:text-gray-600 remove-from-cart-btn" data-name="${
+          <button class="px-4 py-1 rounded bg-red-500 hover:bg-red-700 text-white remove-from-cart-btn" data-name="${
             item.name
           }">Remover</button>
       </div>
@@ -165,7 +167,12 @@ function updateCartModal() {
 
   cartTotal.textContent = formatedPrice(total);
 
-  cartCounter.innerText = cart.length;
+  const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartItemsCount.textContent = totalItemsCount;
+
+  // cartCounter.innerText = cart.length;
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCounter.innerText = totalItems;
 }
 
 function updateAddressModal() {
@@ -298,7 +305,7 @@ checkoutBtn.addEventListener("click", function () {
 
     window.open(
       `https://wa.me/${phone}?text=${message} Nome: ${nameInput.value} - Endereço: ${addressInput.value} - Telefone: ${phoneInput.value}`,
-      "_blank"
+      "_blank",
     );
 
     cart = [];
@@ -419,8 +426,8 @@ fetch("./data/menu.json")
           return `
           <div class="flex p-4 border rounded-lg shadow-lg gap-2">
             <img src="${item.image}" alt="${
-            item.name
-          }" class="size-28 rounded-md hover:scale-110 hover:rotate-2 duration-300" />
+              item.name
+            }" class="size-28 rounded-md hover:scale-110 hover:rotate-2 duration-300" />
 
           <div class="flex-1 flex flex-col justify-between">
             <div class="flex flex-col gap-1">
